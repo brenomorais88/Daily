@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>952371782389-std0227g9n0n84k2enfi11mb2urd1gdq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.952371782389-std0227g9n0n84k2enfi11mb2urd1gdq</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCAkgW_axNZY4mAHir6sWduhLnOSiL-Zf0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>952371782389</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.daily.app</string>
+	<key>PROJECT_ID</key>
+	<string>dailyapp-aae9c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>dailyapp-aae9c.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:952371782389:ios:7250955bb6d1007418dbbc</string>
+</dict>
+</plist>
