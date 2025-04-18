@@ -17,4 +17,5 @@ struct Event: Identifiable, Codable {
     var time: String?
     var type: Int
     var recurrence: Int
+    var userID: String?
 }

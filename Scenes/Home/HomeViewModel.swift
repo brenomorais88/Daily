@@ -17,7 +17,7 @@ class HomeViewModel: ObservableObject {
     }
 
     func loadTodayEvents() {
-        service.fetchTodayEvents { events in
+        service.fetchFilteredEvents { events in
             DispatchQueue.main.async {
                 self.events = events.sorted(by: { ($0.time ?? "") < ($1.time ?? "") })
             }

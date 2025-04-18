@@ -51,20 +51,6 @@ struct HomeView: View {
                     }
                     .listStyle(.plain)
                 }
-
-                // TabBar
-                Divider()
-                HStack {
-                    Spacer()
-                    Image(systemName: "house.fill")
-                        .foregroundColor(.blue)
-                    Spacer()
-                    Image(systemName: "calendar")
-                    Spacer()
-                    Image(systemName: "person")
-                    Spacer()
-                }
-                .padding()
             }
             .navigationTitle("Home")
             .navigationBarHidden(true)

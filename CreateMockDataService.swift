@@ -36,13 +36,12 @@ class DebugEventSeeder {
                 finishDate: date,
                 time: time,
                 type: Int.random(in: 1...3),
-                recurrence: Int.random(in: 0...3)
+                recurrence: Int.random(in: 0...3),
+                userID: uid
             )
 
             do {
-                try db.collection("users")
-                    .document(uid)
-                    .collection("events")
+                try db.collection("events")
                     .addDocument(from: event)
                 print("✅ Evento \(i) criado")
             } catch {
