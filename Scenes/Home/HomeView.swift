@@ -9,22 +9,30 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
+    @State private var isCreatingEvent = false
 
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
                 // Topo com data e botão de adicionar
                 HStack {
-                    Text("Hoje, \(viewModel.todayFormatted)")
+                    Text("Hoje, \(DataHelpers.todayFormatted)")
                         .font(.headline)
                     Spacer()
                     Button(action: {
-                        // Navegar para criação de evento
-                        print("Adicionar evento")
+                        isCreatingEvent = true
                     }) {
                         Image(systemName: "plus.circle.fill")
                             .font(.title2)
                     }
+                    .background(
+                        NavigationLink(
+                            destination: EventDetailView(),
+                            isActive: $isCreatingEvent,
+                            label: { EmptyView() }
+                        )
+                        .hidden()
+                    )
                 }
                 .padding()
 

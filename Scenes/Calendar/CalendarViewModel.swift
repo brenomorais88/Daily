@@ -13,6 +13,7 @@ class CalendarViewModel: ObservableObject {
     @Published var events: [Event] = []
     @Published var formattedSelectedDate: String = ""
     @Published var selectedDate: Date = Date()
+    @Published var isScrolling: Bool = false
 
     let calendarManager: ElegantCalendarManager
     private let eventService = EventService()

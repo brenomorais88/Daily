@@ -22,6 +22,8 @@ class DebugEventSeeder {
         let titles = ["Reunião", "Consulta", "Pagamento", "Academia", "Aniversário", "Lembrete", "Projeto", "Check-in", "Almoço", "Curso"]
         let details = ["Importante", "Com cliente", "Pagar via PIX", "Trabalho em equipe", "Evento pessoal", "Agenda cheia", "Tarefa crítica", "Revisar escopo", nil]
 
+        let eventGroupID: String = generateUniqueId()
+
         for i in 1...count {
             let title = titles.randomElement() ?? "Evento"
             let detail = details.randomElement() ?? nil
@@ -30,6 +32,7 @@ class DebugEventSeeder {
 
             let event = Event(
                 id: nil,
+                eventGroupID: eventGroupID,
                 title: "\(title) \(i)",
                 detail: detail,
                 initDate: date,
@@ -37,7 +40,9 @@ class DebugEventSeeder {
                 time: time,
                 type: Int.random(in: 1...3),
                 recurrence: Int.random(in: 0...3),
-                userID: uid
+                userID: uid,
+                enableAlarm: false,
+                complete: false
             )
 
             do {
@@ -50,7 +55,7 @@ class DebugEventSeeder {
         }
     }
 
-    private func randomDate(forMonth month: Int = 4, year: Int = 2025) -> String {
+    private func randomDate(forMonth month: Int = 5, year: Int = 2025) -> String {
         var components = DateComponents()
         components.year = year
         components.month = month
@@ -79,5 +84,20 @@ class DebugEventSeeder {
         }
 
         return "\(year)-\(String(format: "%02d", month))-01" // fallback
+    }
+
+    func randomAlphaNumeric(length: Int) -> String {
+        let chars = Array("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+        return String((0..<length).compactMap { _ in chars.randomElement() })
+    }
+
+    /// Gera o ID no formato: yyyyMMddHHmmss + 10 chars aleatórios
+    func generateUniqueId() -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "pt_BR")
+        formatter.dateFormat = "yyyyMMddHHmmss"   // ou ajuste para incluir milissegundos: yyyyMMddHHmmssSSS
+        let dateString = formatter.string(from: Date())
+        let randomPart = randomAlphaNumeric(length: 10)
+        return dateString + randomPart
     }
 }

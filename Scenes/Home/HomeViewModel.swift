@@ -17,17 +17,12 @@ class HomeViewModel: ObservableObject {
     }
 
     func loadTodayEvents() {
-        service.fetchFilteredEvents { events in
+        self.service.fetchFilteredEvents { events in
             DispatchQueue.main.async {
                 self.events = events.sorted(by: { ($0.time ?? "") < ($1.time ?? "") })
             }
         }
-    }
 
-    var todayFormatted: String {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "pt_BR")
-        formatter.dateStyle = .long
-        return formatter.string(from: Date())
+//        DebugEventSeeder().seedFakeEvents(count: 50)
     }
 }
